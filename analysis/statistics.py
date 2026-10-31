@@ -21,6 +21,10 @@ def calculate_basic_statistics(G: nx.Graph) -> dict[str, int | float]:
     }
 
 def calculate_average_clustering(G: nx.Graph) -> float:
+
+    if G.number_of_nodes() == 0:
+        return 0.0
+
     return nx.average_clustering(G)
 
 

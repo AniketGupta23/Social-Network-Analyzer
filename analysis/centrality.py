@@ -22,9 +22,10 @@ def calculate_closeness_centrality(
     return nx.closeness_centrality(G)
 
 
-def calculate_eigenvector_centrality(
-    G: nx.Graph
-) -> dict[str, float]:
+def calculate_eigenvector_centrality(G: nx.Graph) -> dict[str, float]:
+
+    if G.number_of_nodes() == 0:
+        return {}
 
     try:
         return nx.eigenvector_centrality(G, max_iter=1000)
