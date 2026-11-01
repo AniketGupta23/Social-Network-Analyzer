@@ -1,5 +1,6 @@
 # Python virtual environment
 .venv/
+.env
 
 # Python cache
 __pycache__/
@@ -15,3 +16,4 @@ __pycache__/
 # Phase 1 learning and practice files
 /Phase 1/
 /Datasets/
+/test.py
