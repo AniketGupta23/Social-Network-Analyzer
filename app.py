@@ -1,10 +1,12 @@
 from flask import Flask, jsonify
 from api.datasets import datasets_bp
+from api.graph import graph_bp
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024
 
 app.register_blueprint(datasets_bp)
+app.register_blueprint(graph_bp)
 
 
 @app.route("/api/health", methods=["GET"])
