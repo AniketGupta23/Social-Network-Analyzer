@@ -127,7 +127,7 @@ def validate_nodes_csv(csv_path):
 
 
 
-def import_dataset(csv_path, directed=False, nodes_csv_path=None):
+def import_dataset(csv_path, directed=False, nodes_csv_path=None, filename=None):
     # Validate CSV files before connecting to MySQL
     edge_nodes, edges = validate_edges_csv(csv_path, directed)
 
@@ -154,7 +154,7 @@ def import_dataset(csv_path, directed=False, nodes_csv_path=None):
             INSERT INTO datasets (filename, is_directed)
             VALUES (%s, %s)
             """,
-            (Path(csv_path).name, directed)
+            (filename if filename is not None else Path(csv_path).name, directed)
         )
 
         dataset_id = cursor.lastrowid
